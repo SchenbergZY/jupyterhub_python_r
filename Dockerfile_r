@@ -6,14 +6,13 @@ LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 
 USER root
 
-# R pre-requisites
+# R pre-requisites # libav-tools does not exist anymore
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     fonts-dejavu \
     tzdata \
     gfortran \
-    gcc \
-    libav-tools && apt-get clean && \
+    gcc && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 USER $NB_UID
